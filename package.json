@@ -1,7 +1,11 @@
 {
-  "name": "starterkit",
+  "name": "Starterkit",
   "version": "1.0.0",
-  "description": "",
+  "description": "A starter template for rapid website development",
+  "repository": {
+      "type": "git",
+      "url": "git+https://github.com/calvintan/starterkit.git"
+    },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
