@@ -2,7 +2,7 @@ var gulp = require('gulp')
 var sass = require('gulp-sass')
 var plumber = require('gulp-plumber')
 var notify = require('gulp-notify')
-var browserSync = require('browser-sync').create()
+var browserSync = require('browser-sync')
 var autoprefixer = require('gulp-autoprefixer')
 var sourcemaps = require('gulp-sourcemaps')
 var useref = require('gulp-useref')
@@ -38,9 +38,9 @@ gulp.task('sass', function () {
 })
 
 gulp.task('watch', function () {
-  gulp.watch('app/*.html', browserSync.reload)
   gulp.watch('app/scss/**/*.scss', ['sass'])
-  gulp.watch('app/js/**/*.html', browserSync.reload)
+  gulp.watch('app/*.html', browserSync.reload)
+  gulp.watch('app/js/**/*.js', browserSync.reload)
 })
 
 gulp.task('useref', function () {
