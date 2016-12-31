@@ -13,6 +13,10 @@ var imagemin = require('gulp-imagemin')
 var cache = require('gulp-cache')
 var del = require('del')
 var runSequence = require('run-sequence')
+var $ = require('gulp-load-plugins')();
+var config = {
+  includePaths: './app/bower_components'
+}
 
 gulp.task('browserSync', function () {
   browserSync.init({
@@ -26,7 +30,9 @@ gulp.task('sass', function () {
   return gulp.src('app/scss/**/*.scss')
     .pipe(customPlumber('Error running Sass'))
     .pipe(sourcemaps.init()) // init sourcemaps
-    .pipe(sass())
+    .pipe($.sass({
+      includePaths: config.includePaths
+    }))
     .pipe(autoprefixer({
       browsers: ['ie 8-9', 'last 2 versions']
     }))
@@ -64,6 +70,11 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest('dist/fonts'))
 })
 
+gulp.task('icons', function() { 
+  return gulp.src(config.includePaths + '/font-awesome/fonts/**.*') 
+    .pipe(gulp.dest('dist/fonts')); 
+});
+
 function customPlumber (errTitle) {
   return plumber({
     errorHandler: notify.onError({
@@ -86,7 +97,7 @@ gulp.task('clean:dist', function () {
 gulp.task('build', function (callback) {
   runSequence(
     'clean:dist',
-    ['sass', 'useref', 'images', 'fonts'],
+    ['sass', 'useref', 'images', 'fonts', 'icons'],
     callback
   )
 })

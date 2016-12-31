@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "A starter template for rapid website development",
   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/calvintan/starterkit.git"
-    },
+    "type": "git",
+    "url": "git+https://github.com/calvintan/starterkit.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,6 +21,7 @@
     "gulp-cssnano": "^2.1.1",
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^2.4.0",
+    "gulp-load-plugins": "^1.4.0",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
     "gulp-sass": "^2.2.0",
